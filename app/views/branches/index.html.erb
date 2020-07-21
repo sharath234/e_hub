@@ -1,0 +1,23 @@
+<h1>Branches </h1>
+
+<table class = "table table-bordered table-striped">
+<thead>.
+   <tr>
+      <th>Location</th>
+      <th>Address</th>
+       
+   </tr>
+</thead>
+
+<tbody>
+ <% @branches.each do |branch| %>
+      
+      <tr>
+      <td><%= branch.location %></td>
+      <td><%= branch.address %></td>
+         
+   <% end %>
+</tbody>
+
+</table>
+
