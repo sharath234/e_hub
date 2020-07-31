@@ -4,10 +4,13 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
+//= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks 
 //= require rails-ujs
-//= require jquery
-//= require jquery_ujs
+//= require datatables
 //= require twitter/bootstrap
 //= require_tree .
+

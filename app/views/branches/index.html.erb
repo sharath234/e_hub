@@ -1,10 +1,11 @@
 <h1>Branches </h1>
 
-<table class = "table table-bordered table-striped">
+<table class = "table table-bordered table-striped" id="branch_data">
 <thead>.
    <tr>
       <th>Location</th>
       <th>Address</th>
+      <th>School</th>
        
    </tr>
 </thead>
@@ -15,6 +16,7 @@
       <tr>
       <td><%= branch.location %></td>
       <td><%= branch.address %></td>
+      <td><%= branch.school.name %></td>
          
    <% end %>
 </tbody>

@@ -46,6 +46,8 @@
           <% if user_signed_in? %>
             <li><%= link_to "Admin", "http://127.0.0.1:3000/admin"  %></li>
             <li><%= link_to "Student Information", student_informations_path %></li>
+            <li><%= link_to "Teacher Information", teacher_informations_path %></li>
+            <li><%= link_to "Exams",  exams_path %></li>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Log in", " new_user_session_path" %></li>
@@ -65,13 +67,15 @@
         <% if user_signed_in? %>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
+            <h3>Quick Menu</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
+              <li class="nav-header"> </li>
+              <li><%= link_to "Teachers", teachers_path  %></li>
               <li><%= link_to "students", students_path  %></li>
               <li><%= link_to "Standards", standards_path  %></li>
               <li><%= link_to "Branches", branches_path  %></li>
               <li><%= link_to "Schools", schools_path  %></li>
+               
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

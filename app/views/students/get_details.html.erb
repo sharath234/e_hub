@@ -1,0 +1,80 @@
+</tbody>
+</table> 
+<p><strong>Name :</strong> <%= @student.name %></p>
+<p><strong>Standard :</strong> <%= @student.standard.name %></p>
+<p><strong>Date of Birth :</strong> <%= @student.dob %></p>
+<p><strong>Address :</strong> <%= @student.branch %> </p>
+
+<table class="table table-striped" id="students_data">
+
+<tr>
+<th>Subjects</th>
+<th>Quaterly</th>
+<th>Halfyearly</th>
+<th>Annually</th>
+</tr>
+<% @qscores = @student.scores.where(:exam_id=>1)%>
+<% @hscores = @student.scores.where(:exam_id=>2)%>
+<% @ascores = @student.scores.where(:exam_id=>3)%>
+<% @qscores.each do |q| %>
+<% @hscores.each do |h| %>
+<% @ascores.each do |an| %>
+<tr>
+ 
+<th><%= @subjects.second %></th>
+<td><%= q1 = q.telugu %></td>
+<td><%= h1 = h.telugu %></td>
+<td><%= a1 = an.telugu %></td>
+</tr>
+<tr>
+<th><%= @subjects.first %></th>
+<td><%= q2 = q.hindi %></td>
+<td><%= h2 = h.hindi %></td>
+<td><%= a2 = an.hindi %></td>
+</tr>
+<tr>
+<th><%= @subjects.third %></th>
+<td><%= q3 = q.english %></td>
+<td><%= h3 = h.english %></td>
+<td><%= a3 = an.english %></td>
+</tr>
+<tr>
+<th><%= @subjects.fourth %></th>
+<td><%= q4 = q.maths %></td>
+<td><%= h4 = h.maths %></td>
+<td><%= a4 = an.maths %></td>
+</tr>
+<tr>
+<th><%= @subjects.fifth %></th>
+<td><%= q5 = q.science %></td>
+<td><%= h5 = h.science %></td>
+<td><%= a5 = an.science %></td>
+</tr>
+<tr>
+<th><%= @subjects.last %></th>
+<td><%= q6 = q.social %></td>
+<td><%= h6 = h.social %></td>
+<td><%= a6 = an.social %></td>
+</tr>
+<tr>
+<th>Total</th>
+<td><%= qtotal = q1+q2+q3+q4+q5+q6 %></td>
+<td><%= htotal = h1+h2+h3+h4+h5+h6 %></td>
+<td><%= atotal = a1+a2+a3+a4+a5+a6 %></td>
+</tr>
+<tr>
+<th>Total Marks</th>
+<td><%= total = Subject.count*100 %></td>
+<td><%= total %></td>
+<td><%= total %></td>
+</tr>
+<tr>
+<th>Percentage</th>
+<td><%= p = (qtotal*100)/total %></td>
+<td><%= p = (htotal*100)/total %></td>
+<td><%= p = (atotal*100)/total %></td>
+</tr>
+<% end %>
+<% end %>
+<% end %>
+</table> 

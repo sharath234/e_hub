@@ -1,29 +1,38 @@
 $( document ).on("turbolinks:load", function() {
  $('#branches_id').hide();
  $('#standards_id').hide();
+ $('#teachers_id').hide();
  $('#students_id').hide();
  $('#student_info').hide();
 
     $('#schools').change(function(){
         var id = $(this).val();
         $('#standards_id').hide();
-         $('#students_id').hide();
-         $('#student_info').hide();
+        $('#teachers_id').hide();
+        $('#students_id').hide();
+        $('#student_info').hide();
 
         get_branches(id);
     });
     $('#branches').change(function(){
        var branch_id = $('#branches').val();
-       $('#students_id').hide();
        get_standards(branch_id);
-       $('#students_id').hide();
-       $('#student_info').hide();
+        $('#teachers_id').hide();
+        $('#students_id').hide();
+        $('#student_info').hide();
     });
 
     $('#standards').change(function(){
         var standard_id = $('#standards').val();
-        get_students(standard_id);
+        get_teachers(standard_id);
+        $('#students_id').hide();
         $('#student_info').hide();
+     });
+
+     $('#teachers').change(function(){
+        var teacher_id = $('#teachers').val();
+        get_students(teacher_id);
+         $('#student_info').hide();
      });
       
      $('#students').change(function(){
@@ -77,12 +86,40 @@ function get_standards(id){
      
 }
 
+function get_teachers(id) {
+    var formdata = new FormData();
+    formdata.append('school_id', $('#schools').val());
+    formdata.append('branch_id', $('#branches').val());
+    formdata.append('standard_id', id);
+    Rails.ajax({ 
+     url: "/student_informations/get_teachers",   
+     type: 'post',
+     data: formdata,
+     dataType: "json",
+     contentType: "application/json",
+     success: function(data){
+        var select = $('#teachers');
+        select.find('option').remove();
+        $('<option>').val("").text("").appendTo(select);
+         $.each(data, function(key,value){
+            $('<option>').val(value.id).text(value.name).appendTo(select);
+
+        });
+
+        $('#teachers_id').fadeIn(1000);
+    }
+ })
+    
+}
+
 
 function get_students(id) {
     var formdata = new FormData();
     formdata.append('school_id', $('#schools').val());
     formdata.append('branch_id', $('#branches').val());
-    formdata.append('standard_id', id);
+    formdata.append('standard_id', $('#standards').val()); 
+    formdata.append('teacher_id', id);
+
     Rails.ajax({
      url: "/student_informations/get_students",
      type: 'post',

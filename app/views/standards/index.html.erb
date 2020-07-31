@@ -1,9 +1,10 @@
 <h1>Standards</h1>
  
-<table class = "table table-bordered table-striped">
+<table class = "table table-bordered table-striped" id="standard_data">
 <thead>.
    <tr>
       <th>Name</th>
+      <th>school</th>
        
    </tr>
 </thead>
@@ -13,6 +14,9 @@
       
       <tr>
       <td><%=  standard.name %></td>
+      <td><%=  standard.school.name %></td>
+       
+         
       
    <% end %>
 </tbody>

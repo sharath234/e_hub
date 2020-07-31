@@ -1,12 +1,16 @@
 <h1>Students</h1>
  
 
-<table class = "table table-bordered table-striped">
+<table class = "table table-bordered table-striped" id="student_data">
 <thead>.
    <tr>
       <th>Name</th>
       <th>Age</th>
       <th>Gender</th>
+      <th>School</th>
+      <th>Branch</th>
+      <th>Marks</th>
+      <th colspan="5"></th>
        
    </tr>
 </thead>
@@ -18,6 +22,9 @@
       <td><%= student.name %></td>
       <td><%= student.age %></td>
       <td><%= student.gender%></td>
+      <td> <%= student.school.name if  student.school %> </td>
+      <td><%= student.branch%></td>
+      <td><%= link_to 'get details', get_details_student_url(student), :class => "btn btn-info" %></td>
       
    <% end %>
 </tbody>

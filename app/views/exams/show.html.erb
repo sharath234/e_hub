@@ -1,0 +1,45 @@
+<h1><%= @exam.name %> Info</h1>
+
+<table class="table table-striped" id="students_data">
+<thead>
+<tr>
+    <th>Name</th>
+    <% @subjects.each do |subject| %>
+    <th><%= subject.name %></th>
+<% end %>
+<th>Total Marks Obtained</th>
+<th>Total Marks</th>
+<th>Percentage</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<% @students.each do |student|%>
+<tr>
+<td><%= student.name %></td> 
+<% @s = student.scores.where(:exam_id=>params[:id]) %>
+<% @s.each do | marks |%>
+<td><%= a = marks.hindi %></td>
+<td><%= b = marks.telugu %></td>
+<td><%= c = marks.english %></td>
+<td><%= d = marks.maths %></td>
+<td><%= e = marks.science %></td>
+<td><%= f = marks.social %></td>
+<td><center><%= total = a+b+c+d+e+f %></center></td>
+<td><center><%= @exam.total_marks %></center></td>
+<td><center><%= p = (total*100)/@exam.total_marks %></center></td>
+<% if p < 35 %>
+<td> Grade-D </td>
+<% elsif p >= 35 && p < 60 %>
+<td> Grade-C </td>
+<% elsif p >= 60 && p < 80 %>
+<td> Grade-B </td>
+<% elsif p >= 80 && p <= 100 %>
+<td> Grade-A </td>
+<% end %>
+<% end %>
+</tr>
+<% end %> 
+</tbody>
+</table> 
+ 

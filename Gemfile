@@ -57,3 +57,5 @@ gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
 gem "rolify"
 gem 'rails_admin', '~> 2.0'
+gem 'jquery-datatables'
+gem 'jquery-turbolinks'

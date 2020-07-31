@@ -1,0 +1,23 @@
+<h1>Exam Info</h1>
+
+<table class="table table-striped" id="Exam_data">
+<thead>
+<tr>
+    <th>Exam Id</th>
+    <th>Name</th>
+    <th>Subjects</th>
+    <th>Total Marks</th>
+</tr>
+</thead>
+<tbody>
+<% @exams.each do |exam|%>
+<tr>
+    <td><%= exam.id %></td>
+    <td><%= exam.name %></td>
+    <td><%= exam.no_of_subjects %></td>
+    <td><%= exam.total_marks %></td>
+     <td><%= link_to 'show', exam_url(exam), :class => "btn" %></td>
+</tr>
+<% end %> 
+</tbody>
+</table> 
