@@ -111,7 +111,9 @@ function get_teacher_details(id){
         type: 'get',
         success: function(data) {
             $('.tea_name').text(data.name);
-            $('.tea_subject').text(data.teacher.subject);
+            $('.tea_age').text(data.age);
+            $('.tea_gender').text(data.gender);
+            $('.tea_experience').text(data.experience);
             
         }
     });

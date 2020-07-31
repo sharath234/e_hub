@@ -18,7 +18,7 @@
       <tr>
       <td><%= teacher.id%></td>
       <td><%= teacher.name %>
-      <td><%= teacher.school.name %></td>
+      <td> <%= teacher.school.name if  teacher.school %> </td>
       <td><%= teacher.branch %></td>
    <% end %>
 </tbody>
